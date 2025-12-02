@@ -1,0 +1,307 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "satoshi-regular";
+  src: url("/src/assets/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "satoshi-medium";
+  src: url("/src/assets/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "satoshi-bold";
+  src: url("/src/assets/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "satoshi-black";
+  src: url("/src/assets/fonts/Satoshi-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #0f0b1e;
+  --foreground: #faf5ff;
+  --card: rgba(30, 27, 75, 0.95);
+  --card-foreground: #faf5ff;
+  --popover: rgba(15, 11, 30, 0.98);
+  --popover-foreground: #faf5ff;
+  --primary: #9333ea;
+  --primary-foreground: #0f0b1e;
+  --secondary: #1e1b4b;
+  --secondary-foreground: #faf5ff;
+  --muted: #312e81;
+  --muted-foreground: #c4b5fd;
+  --accent: #06b6d4;
+  --accent-foreground: #faf5ff;
+  --destructive: #ef4444;
+  --border: #4c1d95;
+  --input: #1e1b4b;
+  --ring: #9333ea;
+  --chart-1: oklch(0.646 0.222 0);
+  --chart-2: oklch(0.6 0.118 350);
+  --chart-3: oklch(0.398 0.07 340);
+  --chart-4: oklch(0.828 0.189 10);
+  --chart-5: oklch(0.769 0.188 355);
+  --sidebar: #3c1414;
+  --sidebar-foreground: #fef5f5;
+  --sidebar-primary: #DC143C;
+  --sidebar-primary-foreground: #1a0f0f;
+  --sidebar-accent: #E63946;
+  --sidebar-accent-foreground: #fef5f5;
+  --sidebar-border: #6a3a3a;
+  --sidebar-ring: #DC143C;
+}
+
+.dark {
+  --background: #0f0b1e;
+  --foreground: #faf5ff;
+  --card: rgba(30, 27, 75, 0.95);
+  --card-foreground: #faf5ff;
+  --popover: rgba(15, 11, 30, 0.98);
+  --popover-foreground: #faf5ff;
+  --primary: #9333ea;
+  --primary-foreground: #0f0b1e;
+  --secondary: #1e1b4b;
+  --secondary-foreground: #faf5ff;
+  --muted: #312e81;
+  --muted-foreground: #c4b5fd;
+  --accent: #06b6d4;
+  --accent-foreground: #faf5ff;
+  --destructive: #ef4444;
+  --border: #4c1d95;
+  --input: #1e1b4b;
+  --ring: #9333ea;
+}
+
+* {
+  border-color: #4c1d95;
+}
+
+body {
+  background-color: #0f0b1e;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(147, 51, 234, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+  color: #faf5ff;
+  font-family: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0b1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c1d95;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 27, 75, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #9333ea, #06b6d4);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #a855f7, #0891b2);
+}
+
+/* ===========================================
+   MODERN GLASSMORPHISM UI – GLOBAL OVERRIDES
+   Frosted glass surfaces, neon edges, soft glow
+   =========================================== */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-light: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.25);
+
+  --text: #ffffff;
+  --text-muted: #d1d5db;
+
+  --primary: #9333ea;              /* Purple glow */
+  --primary-glow: rgba(147, 51, 234, 0.55);
+
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+  --radius: 16px;
+}
+
+/* ===========================================
+   GLOBAL BACKGROUND
+   =========================================== */
+body,
+.bg-white,
+.bg-gray-900,
+.bg-gray-800,
+.bg-gray-700 {
+  background: linear-gradient(135deg, #0f0b1e 0%, #1e1b4b 100%) !important;
+  color: var(--text) !important;
+}
+
+/* ===========================================
+   GLASS CARDS / PANELS
+   =========================================== */
+.card,
+.bg-card,
+.bg-white,
+.bg-gray-800,
+.bg-gray-900,
+.shadow,
+.shadow-md,
+.shadow-lg {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: var(--shadow-glass) !important;
+  border-radius: var(--radius) !important;
+  color: var(--text) !important;
+}
+
+/* Stronger glass */
+.glass-strong {
+  background: var(--glass-bg-light) !important;
+}
+
+/* ===========================================
+   BUTTONS (Frosted neon)
+   =========================================== */
+button,
+.btn,
+.bg-blue-500,
+.bg-primary {
+  background: var(--glass-bg-light) !important;
+  border: 1px solid var(--primary) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: var(--text) !important;
+  border-radius: 12px !important;
+  transition: 0.25s ease !important;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--primary-glow) !important;
+  box-shadow: 0 0 20px var(--primary-glow) !important;
+}
+
+/* ===========================================
+   INPUTS (Glass fields)
+   =========================================== */
+input,
+textarea,
+select,
+.bg-gray-200,
+.bg-gray-300 {
+  background: var(--glass-bg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  padding: 0.55rem 0.75rem !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 12px var(--primary-glow) !important;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ===========================================
+   SIDEBAR / NAVIGATION
+   =========================================== */
+nav,
+aside,
+.sidebar {
+  background: var(--glass-bg-light) !important;
+  border-right: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: var(--shadow-glass) !important;
+}
+
+/* ===========================================
+   TEXT COLOR OVERRIDES
+   =========================================== */
+.text-gray-500,
+.text-slate-500,
+.text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+.text-blue-500,
+.text-indigo-500,
+.text-cyan-500 {
+  color: var(--primary) !important;
+}
+
+/* ===========================================
+   BORDERS
+   =========================================== */
+.border,
+.border-gray-200,
+.border-gray-600 {
+  border-color: var(--glass-border) !important;
+}
+
+/* ===========================================
+   SCROLLBAR (Frosted)
+   =========================================== */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
