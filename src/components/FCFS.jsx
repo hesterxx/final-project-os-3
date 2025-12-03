@@ -344,6 +344,56 @@ const FCFS = () => {
                     </motion.div>
                   ))}
                 </div>
+
+                <div className="mt-8 rounded-2xl border-2 border-[#06b6d4]/40 bg-[#012a4a]/70 backdrop-blur-lg overflow-hidden shadow-xl shadow-[#06b6d4]/10">
+                  <div className="px-6 py-4 border-b border-[#06b6d4]/30 bg-gradient-to-r from-[#075985]/70 to-[#0c4a6e]/70">
+                    <h3 className="text-lg font-black text-white tracking-wide">
+                      FCFS Result Table
+                    </h3>
+                    <p className="text-xs text-[#c4b5fd] uppercase tracking-[0.3em]">
+                      AT · BT · CT · WT · TAT
+                    </p>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm text-left text-white">
+                      <thead className="text-xs uppercase tracking-widest bg-[#011f37] text-[#c4b5fd]">
+                        <tr>
+                          <th className="px-6 py-3 font-black">Process</th>
+                          <th className="px-6 py-3 font-black">AT</th>
+                          <th className="px-6 py-3 font-black">BT</th>
+                          <th className="px-6 py-3 font-black">CT</th>
+                          <th className="px-6 py-3 font-black">WT</th>
+                          <th className="px-6 py-3 font-black">TAT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {results.processes.map((process, index) => (
+                          <tr
+                            key={process.id}
+                            className={`border-t border-[#06b6d4]/20 transition-colors hover:bg-[#06b6d4]/10 ${
+                              index % 2 === 0 ? "bg-white/5" : ""
+                            }`}
+                          >
+                            <td className="px-6 py-4 font-black text-[#06b6d4]">
+                              P{process.id}
+                            </td>
+                            <td className="px-6 py-4">{process.arrivalTime}</td>
+                            <td className="px-6 py-4">{process.burstTime}</td>
+                            <td className="px-6 py-4 text-[#22d3ee] font-bold">
+                              {process.endTime}
+                            </td>
+                            <td className="px-6 py-4 text-[#fef3c7] font-bold">
+                              {process.waitTime}
+                            </td>
+                            <td className="px-6 py-4 text-[#c084fc] font-bold">
+                              {process.turnAroundTime}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="h-full flex items-center justify-center text-center py-16">

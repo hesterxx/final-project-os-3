@@ -4,9 +4,30 @@ import { FiPlay, FiReset } from "react-icons/fi";
 
 const FCFS = () => {
   const [processes, setProcesses] = useState([
-    { id: 1, arrivalTime: 0, burstTime: 8, completed: false, startTime: null, endTime: null },
-    { id: 2, arrivalTime: 1, burstTime: 4, completed: false, startTime: null, endTime: null },
-    { id: 3, arrivalTime: 2, burstTime: 2, completed: false, startTime: null, endTime: null },
+    {
+      id: 1,
+      arrivalTime: 0,
+      burstTime: 8,
+      completed: false,
+      startTime: null,
+      endTime: null,
+    },
+    {
+      id: 2,
+      arrivalTime: 1,
+      burstTime: 4,
+      completed: false,
+      startTime: null,
+      endTime: null,
+    },
+    {
+      id: 3,
+      arrivalTime: 2,
+      burstTime: 2,
+      completed: false,
+      startTime: null,
+      endTime: null,
+    },
   ]);
 
   const [executing, setExecuting] = useState(false);
@@ -52,9 +73,30 @@ const FCFS = () => {
 
   const reset = () => {
     setProcesses([
-      { id: 1, arrivalTime: 0, burstTime: 8, completed: false, startTime: null, endTime: null },
-      { id: 2, arrivalTime: 1, burstTime: 4, completed: false, startTime: null, endTime: null },
-      { id: 3, arrivalTime: 2, burstTime: 2, completed: false, startTime: null, endTime: null },
+      {
+        id: 1,
+        arrivalTime: 0,
+        burstTime: 8,
+        completed: false,
+        startTime: null,
+        endTime: null,
+      },
+      {
+        id: 2,
+        arrivalTime: 1,
+        burstTime: 4,
+        completed: false,
+        startTime: null,
+        endTime: null,
+      },
+      {
+        id: 3,
+        arrivalTime: 2,
+        burstTime: 2,
+        completed: false,
+        startTime: null,
+        endTime: null,
+      },
     ]);
     setResults(null);
   };
@@ -87,27 +129,32 @@ const FCFS = () => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#9333ea] opacity-75 animate-pulse" />
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#9333ea]" />
             </span>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#9333ea]">CPU Algorithm</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#9333ea]">
+              CPU Algorithm
+            </p>
           </div>
 
           <h1 className="text-6xl sm:text-7xl font-black text-[#faf5ff] tracking-tight">
-            FCFS <span className="bg-gradient-to-r from-[#9333ea] via-[#06b6d4] to-[#a855f7] text-transparent bg-clip-text">Scheduler</span>
+            FCFS{" "}
+            <span className="bg-gradient-to-r from-[#9333ea] via-[#06b6d4] to-[#a855f7] text-transparent bg-clip-text">
+              Scheduler
+            </span>
           </h1>
 
           <p className="text-lg text-[#c4b5fd] max-w-3xl mx-auto leading-relaxed">
-            First Come First Served scheduling algorithm simulator. Configure processes and visualize how they're scheduled in real-time.
+            First Come First Served scheduling algorithm simulator. Configure
+            processes and visualize how they're scheduled in real-time.
           </p>
         </motion.div>
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
-          {/* Input Section - Modern Dark Red Design */}
+          {/* Input Section */}
           <motion.div
             className="rounded-3xl border-2 border-[#9333ea]/70 bg-gradient-to-br from-[#6a3a3a]/40 via-[#3c1414]/60 to-[#0f0b1e] backdrop-blur-2xl p-10 space-y-8 shadow-2xl shadow-[#9333ea]/20 relative overflow-hidden"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#9333ea]/10 rounded-full blur-3xl" />
             <div className="relative space-y-3">
               <div className="flex items-center gap-4">
                 <div className="w-1.5 h-12 bg-gradient-to-b from-[#9333ea] via-[#06b6d4] to-[#a855f7] rounded-full shadow-lg shadow-[#9333ea]/50" />
@@ -115,7 +162,6 @@ const FCFS = () => {
                   Process Config
                 </h2>
               </div>
-              <p className="text-sm text-[#c4b5fd] ml-6">Configure arrival and burst times</p>
             </div>
 
             <div className="relative space-y-3 max-h-96 overflow-y-auto pr-3">
@@ -127,23 +173,8 @@ const FCFS = () => {
                   transition={{ delay: index * 0.12 }}
                   className="group rounded-2xl border-2 border-[#9333ea]/50 bg-gradient-to-br from-[#9333ea]/20 via-[#06b6d4]/10 to-transparent hover:border-[#9333ea]/90 backdrop-blur-sm p-6 space-y-4 transition-all duration-300 hover:shadow-2xl hover:shadow-[#9333ea]/40 hover:scale-102"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#9333ea] to-[#06b6d4] flex items-center justify-center text-white font-black text-lg shadow-lg shadow-[#9333ea]/50">
-                        {process.id}
-                      </div>
-                      <div>
-                        <h3 className="font-black text-[#faf5ff] text-lg">Process {process.id}</h3>
-                        <p className="text-xs text-[#c4b5fd]">Configuration</p>
-                      </div>
-                    </div>
-                    <div className="text-xs px-4 py-1.5 rounded-full bg-[#9333ea]/30 border-2 border-[#9333ea]/70 text-[#faf5ff] font-bold tracking-wider">
-                      P{process.id}
-                    </div>
-                  </div>
-
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2.5">
+                    <div>
                       <label className="block text-xs font-black text-[#06b6d4] uppercase tracking-widest">
                         Arrival Time
                       </label>
@@ -157,12 +188,12 @@ const FCFS = () => {
                             e.target.value
                           )
                         }
-                        className="w-full rounded-xl border-2 border-[#9333ea]/50 bg-[#0f0b1e]/80 px-4 py-3 text-[#faf5ff] font-bold text-lg focus:border-[#9333ea] focus:outline-none focus:ring-2 focus:ring-[#9333ea]/60 focus:bg-[#2a1515] transition-all"
+                        className="w-full rounded-xl border-2 border-[#9333ea]/50 bg-[#0f0b1e]/80 px-4 py-3 text-[#faf5ff] font-bold"
                         min="0"
                       />
                     </div>
 
-                    <div className="space-y-2.5">
+                    <div>
                       <label className="block text-xs font-black text-[#06b6d4] uppercase tracking-widest">
                         Burst Time
                       </label>
@@ -170,9 +201,13 @@ const FCFS = () => {
                         type="number"
                         value={process.burstTime}
                         onChange={(e) =>
-                          handleInputChange(process.id, "burstTime", e.target.value)
+                          handleInputChange(
+                            process.id,
+                            "burstTime",
+                            e.target.value
+                          )
                         }
-                        className="w-full rounded-xl border-2 border-[#9333ea]/50 bg-[#0f0b1e]/80 px-4 py-3 text-[#faf5ff] font-bold text-lg focus:border-[#9333ea] focus:outline-none focus:ring-2 focus:ring-[#9333ea]/60 focus:bg-[#2a1515] transition-all"
+                        className="w-full rounded-xl border-2 border-[#9333ea]/50 bg-[#0f0b1e]/80 px-4 py-3 text-[#faf5ff] font-bold"
                         min="1"
                       />
                     </div>
@@ -188,7 +223,7 @@ const FCFS = () => {
                 whileTap={{ scale: 0.92 }}
                 onClick={calculateFCFS}
                 disabled={executing}
-                className="flex-1 inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-[#9333ea] bg-gradient-to-br from-[#9333ea] via-[#06b6d4] to-[#a855f7] px-8 py-5 text-lg font-black text-[#0f0b1e] shadow-2xl shadow-[#9333ea]/70 transition-all hover:shadow-[0_0_30px_#9333ea] disabled:opacity-50 disabled:scale-100 hover:-translate-y-1 uppercase tracking-wider"
+                className="flex-1 inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-[#9333ea] bg-gradient-to-br from-[#9333ea] via-[#06b6d4] to-[#a855f7] px-8 py-5 text-lg font-black"
               >
                 <FiPlay className="w-7 h-7" />
                 {executing ? "Executing..." : "Run FCFS"}
@@ -198,7 +233,7 @@ const FCFS = () => {
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.92 }}
                 onClick={reset}
-                className="flex-1 inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-[#9333ea]/60 bg-[#0f0b1e]/80 hover:bg-[#9333ea]/30 px-8 py-5 text-lg font-black text-[#9333ea] transition-all hover:border-[#9333ea] hover:shadow-2xl hover:shadow-[#9333ea]/40 hover:-translate-y-1 uppercase tracking-wider"
+                className="flex-1 inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-[#9333ea]/60 bg-[#0f0b1e]/80 text-[#9333ea] px-8 py-5 text-lg font-black"
               >
                 <FiReset className="w-7 h-7" />
                 Reset All
@@ -206,227 +241,144 @@ const FCFS = () => {
             </div>
           </motion.div>
 
-          {/* Results Section - Modern Dark Red Design */}
+          {/* Results Section */}
           <motion.div
             className="rounded-3xl border-2 border-[#06b6d4]/70 bg-gradient-to-br from-[#6a3a3a]/40 via-[#3c1414]/60 to-[#0f0b1e] backdrop-blur-2xl p-10 space-y-8 shadow-2xl shadow-[#06b6d4]/20 relative overflow-hidden"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[#06b6d4]/10 rounded-full blur-3xl" />
             <div className="relative space-y-3">
-              <div className="flex items-center gap-4">
-                <div className="w-1.5 h-12 bg-gradient-to-b from-[#06b6d4] via-[#9333ea] to-[#a855f7] rounded-full shadow-lg shadow-[#06b6d4]/50" />
-                <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#9333ea]">
-                  Results
-                </h2>
-              </div>
-              <p className="text-sm text-[#c4b5fd] ml-6">Scheduling metrics and analysis</p>
+              <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#9333ea]">
+                Results
+              </h2>
             </div>
 
             {results ? (
               <div className="space-y-6">
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-3 gap-3">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="rounded-xl border-2 border-[#9333ea]/50 bg-gradient-to-br from-[#9333ea]/25 to-[#06b6d4]/15 p-5 text-center hover:border-[#9333ea] hover:shadow-xl hover:shadow-[#9333ea]/40 transition-all cursor-pointer group"
-                  >
-                    <p className="text-xs font-bold text-[#06b6d4] mb-2 uppercase tracking-widest">Wait</p>
-                    <p className="text-4xl font-black text-[#9333ea] group-hover:scale-110 transition-transform">
+                  <div className="rounded-xl p-5 text-center border-2 border-[#9333ea]/50">
+                    <p className="text-xs font-bold text-[#06b6d4]">Wait</p>
+                    <p className="text-4xl font-black text-[#9333ea]">
                       {results.avgWaitTime}
                     </p>
-                    <p className="text-xs text-[#c4b5fd] mt-1">milliseconds</p>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.1 }}
-                    className="rounded-xl border-2 border-[#06b6d4]/50 bg-gradient-to-br from-[#06b6d4]/25 to-[#9333ea]/15 p-5 text-center hover:border-[#06b6d4] hover:shadow-xl hover:shadow-[#06b6d4]/40 transition-all cursor-pointer group"
-                  >
-                    <p className="text-xs font-bold text-[#9333ea] mb-2 uppercase tracking-widest">TAT</p>
-                    <p className="text-4xl font-black text-[#06b6d4] group-hover:scale-110 transition-transform">
+                  <div className="rounded-xl p-5 text-center border-2 border-[#06b6d4]/50">
+                    <p className="text-xs font-bold text-[#9333ea]">TAT</p>
+                    <p className="text-4xl font-black text-[#06b6d4]">
                       {results.avgTurnAroundTime}
                     </p>
-                    <p className="text-xs text-[#c4b5fd] mt-1">milliseconds</p>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="rounded-xl border-2 border-[#faf5ff]/30 bg-gradient-to-br from-[#faf5ff]/10 to-[#c4b5fd]/5 p-5 text-center hover:border-[#faf5ff]/60 hover:shadow-xl hover:shadow-[#faf5ff]/20 transition-all cursor-pointer group"
-                  >
-                    <p className="text-xs font-bold text-[#faf5ff] mb-2 uppercase tracking-widest">Total</p>
-                    <p className="text-4xl font-black text-[#faf5ff] group-hover:scale-110 transition-transform">
+                  <div className="rounded-xl p-5 text-center border-2 border-[#faf5ff]/30">
+                    <p className="text-xs font-bold text-[#faf5ff]">Total</p>
+                    <p className="text-4xl font-black text-[#faf5ff]">
                       {results.totalTime}
                     </p>
-                    <p className="text-xs text-[#c4b5fd] mt-1">milliseconds</p>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Process Details Table */}
-                <div className="space-y-2 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+                <div className="space-y-2 max-h-64 overflow-y-auto pr-2">
                   {results.processes.map((process, index) => (
-                    <motion.div
+                    <div
                       key={process.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="rounded-lg border-2 border-[#9333ea]/30 bg-gradient-to-r from-[#9333ea]/10 to-[#06b6d4]/5 p-4 hover:border-[#9333ea]/70 hover:bg-[#9333ea]/15 transition-all group"
+                      className="rounded-lg border-2 border-[#9333ea]/30 p-4"
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <span className="font-black text-2xl text-[#9333ea]">P{process.id}</span>
-                          <div className="h-1 w-12 bg-gradient-to-r from-[#9333ea] to-[#06b6d4] rounded-full" />
-                        </div>
-                        <span className="text-sm text-[#faf5ff] bg-[#9333ea]/30 px-4 py-1 rounded-lg font-bold border border-[#9333ea]/50">
-                          {process.startTime} → {process.endTime}
+                      <div className="flex justify-between">
+                        <span className="text-[#9333ea] font-black text-xl">
+                          P{process.id}
+                        </span>
+                        <span className="text-[#faf5ff]">
+                          [{process.startTime} → {process.endTime}]
                         </span>
                       </div>
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div className="flex justify-between items-center bg-[#9333ea]/10 rounded-lg px-3 py-2">
-                          <span className="text-[#c4b5fd] font-semibold">Wait:</span>
-                          <span className="font-black text-[#9333ea]">{process.waitTime}</span>
-                        </div>
-                        <div className="flex justify-between items-center bg-[#06b6d4]/10 rounded-lg px-3 py-2">
-                          <span className="text-[#c4b5fd] font-semibold">TAT:</span>
-                          <span className="font-black text-[#06b6d4]">{process.turnAroundTime}</span>
-                        </div>
-                      </div>
-                    </motion.div>
+                    </div>
                   ))}
+                </div>
+
+                {/* ⭐ NEW CT / WT / TAT TABLE ⭐ */}
+                <div className="mt-8 rounded-2xl overflow-hidden border-2 border-[#9333ea]/50 bg-[#0f0b1e]/60 backdrop-blur-xl">
+                  <table className="w-full text-left text-[#faf5ff]">
+                    <thead className="bg-gradient-to-r from-[#9333ea]/40 to-[#06b6d4]/40">
+                      <tr>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          Process
+                        </th>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          AT
+                        </th>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          BT
+                        </th>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          CT
+                        </th>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          WT
+                        </th>
+                        <th className="px-6 py-4 font-black tracking-widest text-sm">
+                          TAT
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {results.processes.map((p, i) => (
+                        <tr
+                          key={p.id}
+                          className={`border-b border-[#9333ea]/30 hover:bg-[#9333ea]/10 ${
+                            i % 2 === 0 ? "bg-[#ffffff]/[0.02]" : ""
+                          }`}
+                        >
+                          <td className="px-6 py-4 font-black text-[#9333ea]">
+                            P{p.id}
+                          </td>
+                          <td className="px-6 py-4">{p.arrivalTime}</td>
+                          <td className="px-6 py-4">{p.burstTime}</td>
+                          <td className="px-6 py-4 text-[#06b6d4] font-bold">
+                            {p.endTime}
+                          </td>
+                          <td className="px-6 py-4 text-[#faf5ff] font-bold">
+                            {p.waitTime}
+                          </td>
+                          <td className="px-6 py-4 text-[#a855f7] font-bold">
+                            {p.turnAroundTime}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             ) : (
-              <div className="h-full flex items-center justify-center text-center py-16">
-                <div className="space-y-4">
-                  <div className="text-6xl">⏱️</div>
-                  <p className="text-[#faf5ff] font-bold text-lg">No Results Yet</p>
-                  <p className="text-[#c4b5fd]">Configure processes and click Execute</p>
-                </div>
+              <div className="text-center py-16 text-[#faf5ff]">
+                No Results Yet — run FCFS
               </div>
             )}
           </motion.div>
         </div>
 
-        {/* Gantt Chart - Modern Dark Red Design */}
+        {/* Gantt Chart */}
         {results && (
           <motion.div
-            className="rounded-3xl border-2 border-[#9333ea]/70 bg-gradient-to-br from-[#6a3a3a]/40 via-[#3c1414]/60 to-[#0f0b1e] backdrop-blur-2xl p-10 space-y-8 shadow-2xl shadow-[#9333ea]/20 relative overflow-hidden"
+            className="rounded-3xl border-2 border-[#9333ea]/70 bg-[#0f0b1e]/80 p-10"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#9333ea]/10 rounded-full blur-3xl" />
-            <div className="relative space-y-3">
-              <div className="flex items-center gap-4">
-                <div className="w-1.5 h-12 bg-gradient-to-b from-[#9333ea] via-[#06b6d4] to-[#a855f7] rounded-full shadow-lg shadow-[#9333ea]/50" />
-                <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#9333ea] to-[#06b6d4]">
-                  Gantt Chart
-                </h2>
-              </div>
-              <p className="text-sm text-[#c4b5fd] ml-6">Visual timeline of process execution</p>
-            </div>
-
-            <div className="relative space-y-8">
-              {/* Process Timeline */}
-              <div className="overflow-x-auto rounded-2xl border-2 border-[#9333ea]/40 bg-[#0f0b1e]/80 p-8">
-                <div className="flex h-28 gap-3 min-w-min">
-                  {results.processes.map((process, index) => (
-                    <motion.div
-                      key={process.id}
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: index * 0.2 }}
-                      style={{
-                        width: `${process.burstTime * 70}px`,
-                      }}
-                      className="relative rounded-2xl border-3 border-[#9333ea] bg-gradient-to-br from-[#9333ea] via-[#06b6d4] to-[#a855f7] flex flex-col items-center justify-center font-black text-[#0f0b1e] hover:shadow-2xl hover:shadow-[#9333ea]/70 transition-all group transform hover:scale-110 hover:-translate-y-3"
-                    >
-                      <span className="text-3xl drop-shadow-lg">P{process.id}</span>
-                      <span className="text-xs font-bold mt-2 opacity-90">{process.burstTime}ms</span>
-                      <div className="absolute -bottom-10 text-xs font-bold text-[#9333ea] whitespace-nowrap">
-                        [{process.startTime}, {process.endTime})
-                      </div>
-                    </motion.div>
-                  ))}
+            <h2 className="text-4xl font-black text-[#9333ea]">Gantt Chart</h2>
+            <div className="mt-8 flex gap-3">
+              {results.processes.map((p) => (
+                <div
+                  key={p.id}
+                  style={{ width: `${p.burstTime * 70}px` }}
+                  className="rounded-xl bg-gradient-to-br from-[#9333ea] via-[#06b6d4] to-[#a855f7] p-4 text-[#0f0b1e] font-black text-xl"
+                >
+                  P{p.id}
                 </div>
-              </div>
-
-              {/* Timeline Ruler */}
-              <div className="overflow-x-auto">
-                <div className="flex gap-0 min-w-min px-8">
-                  {Array.from(
-                    { length: results.totalTime + 1 },
-                    (_, i) => i
-                  ).map((time) => (
-                    <div
-                      key={time}
-                      className="relative"
-                      style={{ width: "70px" }}
-                    >
-                      <div className="absolute top-0 left-0 w-1.5 h-4 bg-[#9333ea] shadow-lg shadow-[#9333ea]/50" />
-                      <span className="text-sm font-black text-[#9333ea] absolute -top-8">
-                        {time}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 h-1.5 bg-gradient-to-r from-[#9333ea] via-[#06b6d4] to-[#a855f7] rounded-full shadow-lg shadow-[#9333ea]/40" />
-              </div>
-
-              {/* Summary Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="rounded-xl border-2 border-[#9333ea]/50 bg-gradient-to-br from-[#9333ea]/20 to-[#06b6d4]/10 p-5 text-center hover:border-[#9333ea] hover:shadow-xl hover:shadow-[#9333ea]/40 transition-all group cursor-pointer"
-                >
-                  <p className="text-xs font-black text-[#06b6d4] mb-2 uppercase tracking-widest">Processes</p>
-                  <p className="text-4xl font-black text-[#9333ea] group-hover:scale-110 transition-transform">
-                    {results.processes.length}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="rounded-xl border-2 border-[#9333ea]/50 bg-gradient-to-br from-[#9333ea]/20 to-[#06b6d4]/10 p-5 text-center hover:border-[#9333ea] hover:shadow-xl hover:shadow-[#9333ea]/40 transition-all group cursor-pointer"
-                >
-                  <p className="text-xs font-black text-[#06b6d4] mb-2 uppercase tracking-widest">Duration</p>
-                  <p className="text-4xl font-black text-[#9333ea] group-hover:scale-110 transition-transform">
-                    {results.totalTime}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="rounded-xl border-2 border-[#06b6d4]/50 bg-gradient-to-br from-[#06b6d4]/20 to-[#9333ea]/10 p-5 text-center hover:border-[#06b6d4] hover:shadow-xl hover:shadow-[#06b6d4]/40 transition-all group cursor-pointer"
-                >
-                  <p className="text-xs font-black text-[#9333ea] mb-2 uppercase tracking-widest">Avg Wait</p>
-                  <p className="text-4xl font-black text-[#06b6d4] group-hover:scale-110 transition-transform">
-                    {results.avgWaitTime}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="rounded-xl border-2 border-[#06b6d4]/50 bg-gradient-to-br from-[#06b6d4]/20 to-[#9333ea]/10 p-5 text-center hover:border-[#06b6d4] hover:shadow-xl hover:shadow-[#06b6d4]/40 transition-all group cursor-pointer"
-                >
-                  <p className="text-xs font-black text-[#9333ea] mb-2 uppercase tracking-widest">Avg TAT</p>
-                  <p className="text-4xl font-black text-[#06b6d4] group-hover:scale-110 transition-transform">
-                    {results.avgTurnAroundTime}
-                  </p>
-                </motion.div>
-              </div>
+              ))}
             </div>
           </motion.div>
         )}
